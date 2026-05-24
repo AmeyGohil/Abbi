@@ -1,0 +1,45 @@
+CODEPEN REFERENCES INDEX
+========================
+Full original source code for each pen is saved in the references/ folder.
+
+1. Cat Hanging Animation
+   URL      : https://codepen.io/davidkpiano/pen/Xempjq
+   Author   : David Khourshid (davidkpiano)
+   Source   : references/1-cat-hanging-davidkpiano.html
+   Used in  : src/components/CatHanging.tsx + src/styles/cat-swinging.css
+   Notes    : CSS-only pendulum cat. Implemented natively in React with Framer Motion
+              drag support, click sounds, and 8-click easter egg to trigger stage 2.
+
+2. CSS Corgi Dog
+   URL      : https://codepen.io/Kozelskiy/pen/QpYooq
+   Author   : Kozelskiy
+   Source   : references/2-corgi-dog-Kozelskiy.html
+   Used in  : src/components/DogCorgi.tsx + src/styles/dog.css
+   Notes    : Pure CSS corgi. All class names prefixed with "dog-" to avoid collisions.
+              Added tongue panting animation. Hungry/fed/petted states added.
+
+3. Falling Confetti (canvas dots)
+   URL      : https://codepen.io/linrock/pen/nMadjQ
+   Author   : linrock
+   Source   : references/3-falling-confetti-linrock.html
+   Used in  : src/components/Confetti.tsx
+   Notes    : Canvas-based falling circles. Recolored to pink/mauve app palette.
+              Shown in background of stage 2 (dog fed state).
+
+4. Confetti Bursts (canvas-confetti library)
+   URL      : https://codepen.io/marcobiedermann/pen/ExvvyLQ
+   Author   : Marco Biedermann (marcobiedermann)
+   Source   : references/4-confetti-bursts-marcobiedermann.html
+   Used in  : src/components/ConfettiBursts.tsx
+   Package  : canvas-confetti (npm)
+   Notes    : Random burst confetti using the canvas-confetti library.
+              Uses default color palette. z-index 9999, above all elements.
+
+5. Ribbon & Paper Confetti
+   URL      : https://codepen.io/iprodev/pen/azpWBr
+   Author   : iprodev
+   Source   : references/5-ribbon-confetti-iprodev.html
+   Used in  : NOT YET IMPLEMENTED — saved for reference
+   Notes    : Physics-based ribbon and paper confetti with EulerMass simulation.
+              Features twisting ribbons and spinning paper squares.
+              Colors: #df0049/#660671, #00e857/#005291, #2bebbc/#05798a, #ffd200/#b06c00

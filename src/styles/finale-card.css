@@ -1,0 +1,277 @@
+/* FinaleCard — standalone centred card */
+
+/* ── Card shell ── */
+.fc-card {
+  position: relative;
+  cursor: pointer;
+  aspect-ratio: 1122 / 1402;
+  box-shadow:
+    inset 10px 0 15px rgba(196, 90, 148, 0.06),
+    0 8px 20px rgba(196, 90, 148, 0.18),
+    0 18px 40px rgba(184, 77, 130, 0.14);
+  background: #fff8fb;
+}
+
+/* ── Front cover ── */
+.fc-card .fc-front {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  padding: 14px 10px;
+  text-align: center;
+  backface-visibility: hidden;
+  background: linear-gradient(155deg, #fff8fc 0%, #ffd4ea 45%, #ffc2e0 100%);
+  transform-style: preserve-3d;
+  transform-origin: 0% 50%;
+  transform: perspective(800px) rotateY(0deg);
+  transition: transform 0.8s ease-in-out;
+}
+
+.fc-card.fc-card--open .fc-front {
+  transform: perspective(800px) rotateY(-170deg);
+}
+
+.fc-card .fc-ribbon {
+  position: absolute;
+  top: 12px;
+  right: 10px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #a61d69;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  box-shadow: 0 6px 16px rgba(196, 90, 148, 0.15);
+  font-family: "Poppins", sans-serif;
+}
+
+.fc-card .fc-cover-date {
+  font-family: "Dancing Script", cursive;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  line-height: 1;
+  color: #5d2051;
+  font-weight: 700;
+}
+
+.fc-card .fc-heart {
+  margin-top: 12px;
+  font-size: clamp(1.6rem, 4.5vw, 2.2rem);
+  line-height: 1;
+  color: #e84a8a;
+}
+
+/* ── Back (behind flipping cover) ── */
+.fc-card .fc-back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  backface-visibility: visible;
+  background: linear-gradient(180deg, #ffeef6 0%, #ffd9eb 100%);
+  transform-style: preserve-3d;
+  transform-origin: 0% 50%;
+  transition:
+    transform 0.8s ease-in-out,
+    box-shadow 0.8s ease-in-out;
+  box-shadow: none;
+}
+
+.fc-card.fc-card--open .fc-back {
+  transform: perspective(800px) rotateY(-170deg);
+  box-shadow:
+    7px 0 5px rgba(184, 77, 130, 0.15),
+    inset 2px 0 15px rgba(196, 90, 148, 0.08);
+}
+
+.fc-card .fc-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scaleX(-1);
+}
+
+/* ── Inside (message) ── */
+.fc-card .fc-container {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.fc-card .fc-container__inside {
+  display: grid;
+  width: 100%;
+  height: 100%;
+}
+
+.fc-card .fc-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 16px;
+  overflow: hidden;
+  position: relative;
+  background:
+    radial-gradient(
+      circle at 90% 10%,
+      rgba(255, 182, 214, 0.35),
+      transparent 42%
+    ),
+    radial-gradient(
+      circle at 10% 90%,
+      rgba(255, 214, 234, 0.5),
+      transparent 38%
+    ),
+    linear-gradient(165deg, #fff5fa 0%, #ffe8f3 55%, #ffdceb 100%);
+}
+
+/* top-left corner flourish */
+.fc-card .fc-note::before {
+  content: "❧";
+  position: absolute;
+  top: 6px;
+  left: 8px;
+  font-size: 1.1rem;
+  color: rgba(176, 112, 144, 0.28);
+  line-height: 1;
+  pointer-events: none;
+  transform: scaleX(-1);
+}
+
+/* bottom-right corner flourish */
+.fc-card .fc-note::after {
+  content: "❧";
+  position: absolute;
+  bottom: 6px;
+  right: 8px;
+  font-size: 1.1rem;
+  color: rgba(176, 112, 144, 0.28);
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* ── Decorative watermark spots ── */
+.fc-card .fc-deco {
+  position: absolute;
+  pointer-events: none;
+  color: rgba(176, 112, 144, 0.18);
+  line-height: 1;
+  user-select: none;
+}
+.fc-card .fc-deco--1 {
+  font-size: 2.8rem;
+  top: 8%;
+  right: 6%;
+  transform: rotate(15deg);
+}
+.fc-card .fc-deco--2 {
+  font-size: 1.1rem;
+  top: 22%;
+  left: 4%;
+  transform: rotate(-10deg);
+}
+.fc-card .fc-deco--3 {
+  font-size: 1.5rem;
+  top: 48%;
+  right: 4%;
+  transform: rotate(-8deg);
+  color: rgba(176, 112, 144, 0.13);
+}
+.fc-card .fc-deco--4 {
+  font-size: 2rem;
+  bottom: 18%;
+  left: 5%;
+  transform: rotate(20deg);
+}
+.fc-card .fc-deco--5 {
+  font-size: 0.85rem;
+  bottom: 8%;
+  right: 10%;
+  transform: rotate(5deg);
+}
+
+.fc-card .fc-message {
+  width: 100%;
+  overflow-y: auto;
+  max-height: 100%;
+  text-align: left;
+  padding-right: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: #a0456e transparent;
+}
+
+.fc-card .fc-message::-webkit-scrollbar {
+  width: 5px;
+}
+
+.fc-card .fc-message::-webkit-scrollbar-track {
+  background: linear-gradient(165deg, #fff5fa 0%, #ffe8f3 55%, #ffdceb 100%);
+  border-radius: 99px;
+}
+
+.fc-card .fc-message::-webkit-scrollbar-thumb {
+  background: #a0456e;
+  border-radius: 99px;
+  opacity: 0.7;
+}
+
+.fc-card .fc-message p {
+  margin: 0 0 0.55em;
+  font-family: "Caveat", cursive;
+  font-size: clamp(0.95rem, 1.8vw, 1.25rem);
+  line-height: 1.55;
+  color: #5a3d52;
+  overflow-wrap: break-word;
+}
+
+.fc-card .fc-message p:first-child {
+  font-family: "Dancing Script", cursive;
+  font-size: clamp(1.15rem, 2.1vw, 1.5rem);
+  font-weight: 700;
+  color: #7a2d5e;
+  margin-bottom: 0.7em;
+}
+
+.fc-card .fc-sign-off {
+  margin-top: 0.8em !important;
+  font-family: "Dancing Script", cursive !important;
+  font-size: clamp(0.9rem, 1.7vw, 1.15rem) !important;
+  color: #a0456e !important;
+  line-height: 1.5 !important;
+  text-align: right;
+}
+
+.fc-card .fc-signature {
+  display: block;
+  max-width: 21%;
+  height: auto;
+  margin: 4px 0 2px auto;
+  /* recolorize black ink → pink to match sign-off text */
+  filter: brightness(0) saturate(100%) invert(35%) sepia(55%) saturate(700%)
+    hue-rotate(290deg) brightness(85%);
+  opacity: 0.8;
+  text-align: right;
+}
+
+.fc-card .fc-date {
+  font-family: "Play", sans-serif !important;
+  font-weight: 700 !important;
+  font-size: clamp(0.62rem, 1.1vw, 0.78rem) !important;
+  color: #af395e !important;
+  letter-spacing: 0.06em;
+  margin-top: 2px !important;
+  opacity: 0.8;
+  text-align: right;
+}

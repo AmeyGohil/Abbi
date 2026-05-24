@@ -1,0 +1,33 @@
+{
+  "name": "love",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "homepage": "https://AmeyGohil.github.io/Abbi",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
+    "uncommit": "git update-ref -d HEAD"
+  },
+  "dependencies": {
+    "@react-spring/web": "^10.0.0",
+    "@types/canvas-confetti": "^1.9.0",
+    "canvas-confetti": "^1.9.4",
+    "framer-motion": "^11.0.0",
+    "react": "^19.0.0",
+    "react-confetti": "^6.4.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.15.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react-swc": "^4.0.0",
+    "gh-pages": "^5.0.0",
+    "typescript": "^6.0.2",
+    "vite": "^8.0.10"
+  }
+}

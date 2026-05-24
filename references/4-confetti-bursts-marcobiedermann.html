@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  
+
+    <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+
+    <meta name="apple-mobile-web-app-title" content="CodePen">
+
+    <link rel="icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+
+    <link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg" color="#111" />
+
+
+
+  
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-f07739098a39bd4e74ddd974652dac904146f33fdc1ecab356e8c809a05faccb.js"></script>
+
+
+  <title>Confetti Button</title>
+
+    <link rel="canonical" href="https://codepen.io/marcobiedermann/pen/ExvvyLQ">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  
+  
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f5f8ff;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.5;
+  min-block-size: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+button {
+  cursor: pointer;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+.button {
+  background-color: #404663;
+  color: #fff;
+  border: 0;
+  font-size: 2rem;
+  font-weight: 400;
+  padding: 0.5em 1.25em;
+  border-radius: 0.5em;
+  z-index: 999;
+  position: relative;
+  display: flex;
+  gap: 0.5em;
+  box-shadow:
+    0px 1.7px 2.2px rgba(0, 0, 0, 0.02),
+    0px 4px 5.3px rgba(0, 0, 0, 0.028),
+    0px 7.5px 10px rgba(0, 0, 0, 0.035),
+    0px 13.4px 17.9px rgba(0, 0, 0, 0.042),
+    0px 25.1px 33.4px rgba(0, 0, 0, 0.05),
+    0px 60px 80px rgba(0, 0, 0, 0.07);
+}
+
+.button:active {
+  transform: scale(1.01);
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+</head>
+
+<body translate="no">
+  <div id="root"></div>
+  
+    <script id="rendered-js" type="module">
+import React from "https://esm.sh/react@19";
+import { createRoot } from "https://esm.sh/react-dom@19/client";
+import confetti from "https://esm.sh/canvas-confetti@1";
+
+function App() {
+  function onClick() {
+    confetti({
+      particleCount: 150,
+      spread: 60 });
+
+  }
+
+  return /*#__PURE__*/(
+    React.createElement("button", { className: "button", onClick: onClick }, /*#__PURE__*/
+    React.createElement("span", null, "\uD83C\uDF89"), /*#__PURE__*/
+    React.createElement("span", null, "Like")));
+
+
+}
+
+createRoot(document.getElementById("root")).render( /*#__PURE__*/React.createElement(App, null));
+//# sourceURL=pen.js
+  </script>
+
+  
+</body>
+
+</html>
+

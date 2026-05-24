@@ -1,0 +1,114 @@
+/* Dog Food Bowl — handcrafted */
+
+.dog-bowl-wrap {
+  position: fixed;
+  bottom: 2vmin;
+  left: 2vmin;
+  width: 14vmin;
+  z-index: 10;
+  pointer-events: all;
+  cursor: grab;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  user-select: none;
+}
+
+.dog-bowl-wrap:active {
+  cursor: grabbing;
+}
+
+/* ── Outer ceramic rim ── */
+.dog-bowl {
+  position: relative;
+  width: 13vmin;
+  height: 5vmin;
+  background: linear-gradient(180deg, #f5f0ea 0%, #e8ddd0 50%, #d4c5b2 100%);
+  border-radius: 0 0 50% 50% / 0 0 100% 100%;
+  box-shadow:
+    0 0.3vmin 0 #c2ae96,
+    0 0.6vmin 0 #aa9480,
+    0 1vmin 1.5vmin rgba(0,0,0,0.18),
+    inset 0 -0.5vmin 1vmin rgba(0,0,0,0.08);
+}
+
+/* shiny highlight on rim */
+.dog-bowl::before {
+  content: "";
+  position: absolute;
+  top: 15%;
+  left: 12%;
+  width: 30%;
+  height: 35%;
+  background: rgba(255,255,255,0.55);
+  border-radius: 50%;
+  filter: blur(0.4vmin);
+}
+
+/* colour band around the bowl */
+.dog-bowl::after {
+  content: "";
+  position: absolute;
+  top: 18%;
+  left: 8%;
+  width: 84%;
+  height: 28%;
+  background: linear-gradient(90deg, transparent 0%, #f4a7b9 20%, #f9c4d0 50%, #f4a7b9 80%, transparent 100%);
+  border-radius: 50%;
+  opacity: 0.7;
+}
+
+/* ── Inner bowl (the hollow) ── */
+.dog-bowl-inner {
+  position: absolute;
+  top: 5%;
+  left: 8%;
+  width: 84%;
+  height: 90%;
+  background: radial-gradient(ellipse at 45% 30%, #c8a882 0%, #a07848 40%, #7a5530 100%);
+  border-radius: 50%;
+  box-shadow: inset 0 0.4vmin 1.2vmin rgba(0,0,0,0.4), inset 0 -0.2vmin 0.4vmin rgba(255,210,160,0.15);
+  overflow: hidden;
+}
+
+/* food fill inside bowl */
+.dog-bowl-inner::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+  width: 90%;
+  height: 55%;
+  background: linear-gradient(180deg, #d4884a 0%, #b86830 100%);
+  border-radius: 50% 50% 45% 45% / 30% 30% 55% 55%;
+}
+
+/* ── Kibble pieces ── */
+.kibble {
+  position: absolute;
+  border-radius: 35%;
+  animation: kibble-idle var(--kd, 3s) ease-in-out infinite;
+  animation-delay: var(--kda, 0s);
+  box-shadow: 0 0.15vmin 0.3vmin rgba(0,0,0,0.35), inset 0 0.1vmin 0.2vmin rgba(255,200,120,0.3);
+}
+@keyframes kibble-idle {
+  0%, 100% { transform: rotate(var(--kr, 0deg)) translateY(0); }
+  50%       { transform: rotate(var(--kr, 0deg)) translateY(0.2vmin); }
+}
+
+.kibble--1  { width:1.4vmin; height:1vmin;  background:#e08040; top:10%; left:12%; --kr:15deg;  --kd:2.8s; --kda:-0.2s; }
+.kibble--2  { width:1.2vmin; height:0.9vmin; background:#c86828; top:25%; left:32%; --kr:-22deg; --kd:3.2s; --kda:-0.8s; }
+.kibble--3  { width:1.5vmin; height:1vmin;  background:#d47838; top:8%;  left:55%; --kr:6deg;   --kd:2.6s; --kda:-1.2s; }
+.kibble--4  { width:1.1vmin; height:0.85vmin;background:#e09050;top:35%; left:18%; --kr:40deg;  --kd:3.4s; --kda:-0.4s; }
+.kibble--5  { width:1.3vmin; height:0.95vmin;background:#bf6020;top:30%; left:62%; --kr:-10deg; --kd:2.9s; --kda:-1.6s; }
+.kibble--6  { width:1.2vmin; height:0.9vmin; background:#d07030; top:48%; left:45%; --kr:28deg; --kd:3.1s; --kda:-0.7s; }
+.kibble--7  { width:1.4vmin; height:1vmin;  background:#c86828;  top:45%; left:70%; --kr:-18deg;--kd:2.7s; --kda:-1.9s; }
+
+/* ── Flat base ── */
+.dog-bowl-base {
+  width: 8vmin;
+  height: 0.8vmin;
+  background: linear-gradient(90deg, #c2ae96, #9e8870, #c2ae96);
+  border-radius: 0 0 3vmin 3vmin;
+  box-shadow: 0 0.4vmin 0.8vmin rgba(0,0,0,0.15);
+}

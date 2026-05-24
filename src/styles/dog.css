@@ -1,0 +1,515 @@
+/* CSS Corgi Dog Love by Kozelskiy — codepen.io/Kozelskiy/pen/QpYooq */
+
+.dog-wrap {
+  position: fixed;
+  bottom: 2vmin;
+  right: 6vmin;
+  width: 28vmin;
+  height: 28vmin;
+  z-index: 10;
+  overflow: visible;
+}
+
+.dog-wrap .dog {
+  position: absolute;
+  top: 28%;
+  width: 100%;
+  height: 70%;
+  z-index: 0;
+}
+
+.dog-wrap .dog-heart {
+  display: none;
+  position: absolute;
+  width: 6%;
+  height: 7%;
+  background-color: #e64356;
+  border-bottom-right-radius: 23%;
+  opacity: 0;
+  animation-fill-mode: both;
+}
+
+@keyframes dog-heart-beat {
+  0% {
+    transform: scale(0.75) rotate(35deg);
+    opacity: 1;
+  }
+  5%,
+  15%,
+  25% {
+    transform: scale(1) rotate(35deg);
+  }
+  10%,
+  20% {
+    transform: scale(0.75) rotate(35deg);
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(35deg) translateY(-10px) translateX(-10px);
+    opacity: 0;
+  }
+}
+
+.dog-wrap .dog-heart--1 {
+  top: -25%;
+  left: 15%;
+  animation: dog-heart-beat 2s ease-out infinite 1.5s;
+}
+.dog-wrap .dog-heart--2 {
+  top: -36%;
+  left: 7%;
+  animation: dog-heart-beat 2s ease-out infinite 1s;
+}
+.dog-wrap .dog-heart--3 {
+  top: -48%;
+  left: 14%;
+  animation: dog-heart-beat 2s ease-out infinite 0.5s;
+}
+.dog-wrap .dog-heart--4 {
+  top: -53%;
+  left: -3%;
+  animation: dog-heart-beat 2s ease-out infinite;
+}
+
+.dog-wrap .dog-heart:before,
+.dog-wrap .dog-heart:after {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  content: "";
+  border-radius: 50%;
+  background-color: #e64356;
+}
+.dog-wrap .dog-heart:after {
+  bottom: 0px;
+  left: -53%;
+}
+.dog-wrap .dog-heart:before {
+  top: -53%;
+  right: 0px;
+  transform: rotate(45deg);
+}
+
+.dog-wrap .dog-body {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  background-color: #f79e38;
+  border-top-right-radius: 17% 40%;
+  border-top-left-radius: 25%;
+  border-bottom-right-radius: 5% 13%;
+  border-bottom-left-radius: 30% 40%;
+  z-index: 3;
+}
+
+.dog-wrap .dog-chest {
+  position: absolute;
+  width: 45%;
+  height: 100%;
+  background-color: #fff;
+  border-top-right-radius: 17% 40%;
+  border-top-left-radius: 25%;
+  border-bottom-right-radius: 40% 40%;
+  border-bottom-left-radius: 40% 40%;
+  z-index: 4;
+}
+.dog-wrap .dog-chest:after,
+.dog-wrap .dog-chest:before {
+  position: absolute;
+  content: "";
+  width: 7%;
+  height: 55%;
+  border-radius: 39%;
+  background-color: #fff;
+}
+.dog-wrap .dog-chest:after {
+  top: 36%;
+  left: 3%;
+  transform: rotate(-1deg);
+}
+.dog-wrap .dog-chest:before {
+  top: 19%;
+  left: -4%;
+}
+
+.dog-wrap .dog-head {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  animation: dog-head-tilt 1s ease-out infinite both alternate;
+}
+@keyframes dog-head-tilt {
+  to {
+    transform: translateX(-3px) rotate(3deg);
+  }
+}
+
+.dog-wrap .dog-tail {
+  position: absolute;
+  top: -14%;
+  left: 92%;
+  width: 10%;
+  height: 45%;
+  background-color: #f79e38;
+  border-top-right-radius: 30% 30%;
+  border-top-left-radius: 40% 30%;
+  border-bottom-right-radius: 30% 40%;
+  border-bottom-left-radius: 40% 40%;
+  z-index: 2;
+  transform: rotate(20deg);
+  animation: dog-tail-wag 170ms ease-out infinite;
+}
+@keyframes dog-tail-wag {
+  from,
+  to {
+    transform: rotate(10deg);
+  }
+  50%,
+  60% {
+    transform: rotate(70deg) translateX(10px) translateY(2px);
+  }
+}
+.dog-wrap .dog-tail:before {
+  position: absolute;
+  content: "";
+  top: -8%;
+  left: -7%;
+  width: 100%;
+  height: 50%;
+  background-color: #f79e38;
+  border-radius: 50%;
+  animation: dog-tail-before 160ms ease-out infinite;
+}
+@keyframes dog-tail-before {
+  from,
+  to {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(3px);
+  }
+}
+
+.dog-wrap .dog-legs {
+  position: absolute;
+  top: 97%;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  z-index: 2;
+  animation: dog-legs-bob 1s ease-out infinite 1.5s both alternate;
+}
+@keyframes dog-legs-bob {
+  from {
+    transform: translateY(-1px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+.dog-wrap .dog-legs__front,
+.dog-wrap .dog-legs__back {
+  width: 10%;
+  height: 100%;
+  background-color: #f79e38;
+  position: absolute;
+  border-bottom-right-radius: 100%;
+  border-bottom-left-radius: 100%;
+}
+.dog-wrap .dog-legs__front:after,
+.dog-wrap .dog-legs__back:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  height: 49%;
+  background-color: #fff;
+  border-bottom-right-radius: 100%;
+  border-bottom-left-radius: 100%;
+}
+.dog-wrap .dog-legs__front--left {
+  left: 38%;
+  transform: rotate(1deg);
+}
+.dog-wrap .dog-legs__front--right {
+  left: 20%;
+  transform: rotate(-4deg);
+}
+.dog-wrap .dog-legs__back--left {
+  left: 69%;
+  transform: rotate(-7deg);
+}
+.dog-wrap .dog-legs__back--right {
+  left: 85%;
+  transform: rotate(2deg);
+}
+
+.dog-wrap .dog-face {
+  height: 40%;
+  width: 42%;
+  position: absolute;
+  top: -13%;
+  left: -3%;
+  background-color: #fff;
+  border-top-right-radius: 45% 50%;
+  border-top-left-radius: 35% 50%;
+  border-bottom-left-radius: 35% 21%;
+  z-index: 7;
+}
+.dog-wrap .dog-face:after,
+.dog-wrap .dog-face:before {
+  content: "";
+  position: absolute;
+  background-color: #f79e38;
+}
+.dog-wrap .dog-face:after {
+  width: 27%;
+  left: 7%;
+  height: 23%;
+  border-top-right-radius: 100% 100%;
+  border-bottom-left-radius: 49% 100%;
+  transform: rotate(-64deg);
+  top: -1%;
+  border-top-left-radius: 0% -20%;
+  border-bottom-right-radius: 52% 0%;
+  box-shadow: rgba(0, 0, 0, 0.1) 2px -6px 11px 1px;
+}
+.dog-wrap .dog-face:before {
+  width: 55%;
+  left: 42%;
+  top: 0%;
+  height: 35%;
+  border-radius: 23% 7% 16% 12%;
+  transform: rotate(0deg) scaleX(-1);
+}
+
+.dog-wrap .dog-eye {
+  width: 6%;
+  height: 6%;
+  position: absolute;
+  border-radius: 100%;
+  top: 24%;
+  background-color: #000;
+  z-index: 6;
+  animation: dog-eye-blink 1800ms infinite;
+}
+@keyframes dog-eye-blink {
+  from,
+  to {
+    animation-timing-function: step-end;
+    opacity: 1;
+  }
+  50%,
+  55% {
+    animation-timing-function: step-start;
+    opacity: 0;
+  }
+}
+.dog-wrap .dog-eye--left {
+  left: 27%;
+}
+.dog-wrap .dog-eye--right {
+  left: 46%;
+}
+
+.dog-wrap .dog-mouth {
+  display: none;
+  background-color: transparent;
+  border-color: #000;
+  width: 44%;
+  border-style: solid;
+  border-width: 0.5vmin;
+  height: 48%;
+  z-index: 6;
+  position: absolute;
+  bottom: 35%;
+  left: 14%;
+  border-top-color: transparent;
+  border-bottom-left-radius: 72% 100%;
+  border-bottom-right-radius: 77% 100%;
+  border-right-color: transparent;
+  border-top-right-radius: 50%;
+  border-left-color: transparent;
+  transform: rotate(-41deg);
+}
+
+.dog-wrap .dog-ear {
+  position: absolute;
+}
+.dog-wrap .dog-ear--left {
+  top: -40%;
+  left: 3%;
+  height: 47%;
+  width: 19%;
+  z-index: 1;
+  background-color: #e99036;
+  border-top-left-radius: 68% 100%;
+  border-top-right-radius: 100% 100%;
+  transform-origin: bottom center;
+  animation: dog-ear-left 1000ms ease-out infinite both alternate;
+}
+@keyframes dog-ear-left {
+  from {
+    transform: rotate(-26deg);
+  }
+  25% {
+    transform: rotate(-35deg);
+  }
+  50% {
+    transform: rotate(-26deg);
+  }
+  to {
+    transform: rotate(-40deg);
+  }
+}
+.dog-wrap .dog-ear--right {
+  top: -39%;
+  left: 19%;
+  height: 38%;
+  width: 18%;
+  z-index: 1;
+  background-color: #f79e38;
+  border-top-left-radius: 56% 100%;
+  border-top-right-radius: 100% 100%;
+  transform-origin: bottom center;
+  border-bottom-right-radius: 14% 38%;
+  animation: dog-ear-right 1000ms ease-out infinite both alternate;
+}
+@keyframes dog-ear-right {
+  from {
+    transform: rotate(-331deg);
+  }
+  25% {
+    transform: rotate(-320deg);
+  }
+  50% {
+    transform: rotate(-331deg);
+  }
+  to {
+    transform: rotate(-320deg);
+  }
+}
+
+/* ── Tongue ── */
+.dog-wrap .dog-tongue {
+  position: absolute;
+  width: 22%;
+  height: 30%;
+  background: linear-gradient(180deg, #f7607a 0%, #e8334d 60%, #c2203a 100%);
+  border-radius: 40% 40% 50% 50% / 30% 30% 60% 60%;
+  bottom: 2%;
+  left: -8%;
+  z-index: 8;
+  transform-origin: top center;
+  animation: dog-pant 0.55s ease-in-out infinite alternate;
+  box-shadow: inset 0 -0.3vmin 0.5vmin rgba(0, 0, 0, 0.2);
+}
+
+/* centre crease */
+.dog-wrap .dog-tongue::after {
+  content: "";
+  position: absolute;
+  width: 8%;
+  height: 55%;
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 50%;
+  top: 18%;
+  left: 46%;
+}
+
+@keyframes dog-pant {
+  0% {
+    transform: scaleY(0.4) translateY(-40%);
+  }
+  100% {
+    transform: scaleY(1) translateY(10%);
+  }
+}
+
+.dog-wrap .dog-nose {
+  position: absolute;
+  width: 24%;
+  height: 24%;
+  background-color: #fff;
+  z-index: 7;
+  left: -12%;
+  top: -3%;
+  border-bottom-left-radius: 50% 88%;
+  border-top-left-radius: 11% 43%;
+  transform: rotate(12deg);
+}
+.dog-wrap .dog-nose:after {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 55%;
+  background-color: #000;
+  border-radius: 100%;
+  left: -7%;
+  top: -18%;
+}
+
+/* ── Petted state (click/drag while fed) ── */
+.dog-wrap.dog-petted .dog-heart {
+  display: block;
+  animation-duration: 0.6s !important;
+}
+/* extra hearts via pseudo-elements on the dog div */
+.dog-wrap.dog-petted .dog-heart--1 { transform: scale(1.6); }
+.dog-wrap.dog-petted .dog-heart--2 { transform: scale(1.4); }
+.dog-wrap.dog-petted .dog-heart--3 { transform: scale(1.5); }
+.dog-wrap.dog-petted .dog-heart--4 { transform: scale(1.3); }
+
+.dog-wrap.dog-petted .dog-tail {
+  animation-duration: 55ms !important;
+}
+.dog-wrap.dog-petted .dog-head {
+  animation-name: dog-head-happy !important;
+  animation-duration: 0.18s !important;
+}
+
+/* ── Fed / happy state ── */
+.dog-wrap.dog-fed .dog-tongue  { display: none; }
+.dog-wrap.dog-fed .dog-mouth   { display: block; }
+.dog-wrap.dog-fed .dog-heart   { display: block; }
+
+/* faster tail wag when happy */
+.dog-wrap.dog-fed .dog-tail {
+  animation-duration: 90ms;
+}
+.dog-wrap.dog-fed .dog-tail:before {
+  animation-duration: 80ms;
+}
+
+/* enthusiastic head bobbing */
+.dog-wrap.dog-fed .dog-head {
+  animation-name: dog-head-happy;
+  animation-duration: 0.4s;
+}
+@keyframes dog-head-happy {
+  0%   { transform: translateX(0)    rotate(0deg); }
+  25%  { transform: translateX(-2px) rotate(-2deg); }
+  75%  { transform: translateX(2px)  rotate(2deg); }
+  100% { transform: translateX(0)    rotate(0deg); }
+}
+
+/* happy eyes — squint */
+.dog-wrap.dog-fed .dog-eye {
+  height: 3%;
+  border-radius: 50% 50% 0 0;
+  background-color: #222;
+}
+
+/* bounce the whole dog once when fed */
+.dog-wrap.dog-fed .dog {
+  animation: dog-happy-bounce 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) 1;
+}
+@keyframes dog-happy-bounce {
+  0%, 100% { transform: translateY(0); }
+  30%       { transform: translateY(-8%); }
+  60%       { transform: translateY(-4%); }
+  80%       { transform: translateY(-6%); }
+}
